@@ -1,0 +1,335 @@
+/*Color Palette*/
+/*https://coolors.co/03045e-0077b6-00b4d8-90e0ef-caf0f8*/
+:root{
+	--main: #2E2C28;
+		--mainShade1: #1b1a18;
+		--mainShade2: #000000;
+	--secondary: #464C43;
+		--secondaryShade1: #e5e7e4;
+		--secondaryShade2: #f2f3f1;
+	--sageGreen: #3D6954;
+		--sageGreenShade1: #2f5140;
+		--sageGreenShade2: #1c3127;
+	--limeGreen: #93AB42;
+		--limeGreenShade1: #4f5c24;
+		--limeGreenShade2: #1f250e;
+	--orange: #cc7a00;
+		--orangeShade1: #995c00;
+		--orangeShade2: #663d00;
+	--whiteGreen: #CEE6D2;
+	--penaltyRed: #b30000;
+	--bonusGreen: #00cc99;
+}
+
+@media screen and (max-width:800px)
+{
+	body 
+	{
+    text-align: center;
+	}
+	
+	.small-screen-message
+	{
+		display: block;
+		background-color: black;
+		color: white;
+		padding: 1em;
+		border-radius: 0.25em;
+	}
+	
+	.grid-container
+	{
+		display:none;
+	}
+}
+
+@media screen and (min-width: 801px) {
+ 
+
+	.small-screen-message
+	{
+		display:none;
+	}
+	.item1 { 
+	grid-area: header;
+	background: var(--sageGreen);
+	color:white;
+	text-align:center;
+	}
+
+	.item2 { 
+	grid-area: player; 
+	background:var(--secondaryShade2);
+	color:main;
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	font-size:1.05em;
+	}
+
+	.item3 { 
+	grid-area: time; 
+	background:var(--secondaryShade2);
+	color:main;
+	display:flex;
+	justify-content:center;
+	font-size:1.05em;
+	}
+		
+
+	.item4 { 
+	grid-area: stockTable; 
+	background-color:black;
+	}
+		
+		.item4 table{
+			width:100%;
+		}
+		
+		.item4 th{
+			background:var(--secondary);
+			color:white;
+		}
+		
+		.item4 th, tr, td{
+			border:0.10em; 
+			border-color:black;
+			text-align:center;
+			align-items:center;
+			height:2em;
+			font-size:1.05em;
+		}
+			
+		.stockName:hover{
+				background-color:#ccc;
+			}
+			
+		.stockName.active{
+			background-color:var(--sageGreen);
+			color:white;
+			cursor:grabbing;
+		}
+		
+		.stockName{
+			cursor:grab;
+		}
+			
+		
+		.item4 tr:nth-child(even)
+			{
+				background:var(--secondaryShade1);
+			}	
+			
+		.item4 tr:nth-child(odd)
+			{
+				background:var(--secondaryShade2);
+			}
+		
+	.item5 { 
+	grid-area: pieChart;
+	background-color:black; 
+	display:block;
+	}
+
+
+	.item6 { 
+	grid-area: lineChart; 
+	background-color:black;
+	display:block;
+	}
+		
+		[id$="Chart"]{
+		}
+	
+	.grid-container {
+	  display: grid;
+	  grid-template-areas:
+		'header header header header header header'
+		'player player player time time time'
+		'stockTable stockTable stockTable stockTable stockTable stockTable'
+		'stockTable stockTable stockTable stockTable stockTable stockTable'
+		'stockTable stockTable stockTable stockTable stockTable stockTable'
+		'pieChart lineChart lineChart lineChart lineChart lineChart'
+		'pieChart lineChart lineChart lineChart lineChart lineChart';
+	  gap: 0.25em;
+	  background-color: black;
+	  padding: 0.25em;
+	}
+
+	.grid-container > div {
+	  padding: 0.25em 0;
+	}
+
+	/*=============
+	Colored Buttons
+	=============*/
+		
+		/*Pause Button*/
+		.pauseButton
+			{
+			display: inline-block;
+			width:3.5vw;
+			height:3.75vh;
+			font-size: 0.75em;
+			font-weight:bold;
+			cursor: pointer;
+			text-align: center;
+			color: #fff;
+			background-color:var(--limeGreen);
+			box-shadow: 0 1vh var(--limeGreenShade1);
+			border-radius: 7.5px;
+			border:solid 0.05em black;
+			}
+			
+		.pauseButton:hover{
+			background:var(--limeGreenShade1);
+			box-shadow: 0 1vh var(--limeGreenShade2);
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.pauseButton:active{
+			transition-duration: 0.06s;
+			background:var(--limeGreenShade1);
+			box-shadow: 0 0.15vh var(--limeGreenShade2);
+			transform:translateY(0.9vh);
+		}
+		
+		.pauseButton:focus{
+			transition-duration: 0.12s;
+			background:var(limeGreen);
+			box-shadow: 0 0.15vh var(--limeGreenShade2);
+			transform:translateY(0.9vh);
+		}
+		
+		
+		/*Buy Button*/
+		.buyButton
+			{
+			display: inline-block;
+			width:1.5vw;
+			height:2.5vh;
+			margin-top:0.25em;
+			margin-bottom:0.45em;
+			font-size: 0.75em;
+			font-weight:bold;
+			cursor: pointer;
+			text-align: center;
+			color: #fff;
+			background-color:var(--sageGreen);
+			border-radius: 7.5px;
+			box-shadow: 0 0.45vh var(--sageGreenShade2);
+			border: solid 0.05em black;
+			}
+			
+		.buyButton:hover{
+			background:var(--sageGreenShade2);
+			box-shadow: 0 0.45vh var(--sageGreenShade2);
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.buyButton:active{
+			transition-duration: 0.06s;
+			background:var(--sageGreenShade2);
+			box-shadow: 0 0.05vh var(--sageGreenShade2);
+			transform:translateY(0.39vh);
+		}
+		
+		
+		/*Sell Button*/
+		.sellButton
+			{
+			display: inline-block;
+			width:1.5vw;
+			height:2.5vh;
+			margin-top:0.25em;
+			margin-bottom:0.45em;
+			font-size: 1em;
+			font-weight:bold;
+			cursor: pointer;
+			text-align: center;
+			text-decoration: none;
+			color: #fff;
+			background-color:var(--limeGreen);
+			border-radius: 7.5px;
+			box-shadow: 0 0.45vh var(--limeGreenShade1);
+			border: solid 0.05em black;
+			}
+			
+		.sellButton:hover{
+			background:var(--limeGreenShade1);
+			box-shadow: 0 0.45vh var(--limeGreenShade2);
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.sellButton:active{
+			transition-duration: 0.06s;
+			background:var(--limeGreenShade1);
+			box-shadow: 0 0.05vh var(--limeGreenShade2);
+			transform:translateY(0.39vh);
+		}
+		
+		[id^="inputField"]{
+			display: inline-block;
+			width:1.15vw;
+			height:2.25vh;
+			margin: 0.25em 0.1em 0.45em 0.1em;
+			font-size: 0.75em;
+			text-align: center;
+			border-radius: 7.5px;
+			box-shadow: 0 0.45vh var(--secondary);
+			border: solid 0.05em black;
+		}
+
+			
+		.blueButton{
+			background-color:var(--sageGreen);
+			color:white;
+			box-shadow: 0 1vh var(--sageGreenShade2);
+			width:3.5vw;
+			height:3.75vh;
+			margin:0.08em;
+			font-size:0.75em;
+			font-weight:bold;
+			border-radius:10px;
+			border:solid 0.05em black;
+			/*Shadow*/
+		}
+		
+		.blueButton:hover{
+			background-color:var(--sageGreenShade1);
+			box-shadow: 0 1vh var(--sageGreenShade2);
+			transition-duration:0.4s;
+			cursor:pointer;
+		}
+		
+		.blueButton:active{
+			transition-duration: 0.06s;
+			background-color:var(--sageGreenShade1);
+			box-shadow: 0 0.15vh var(--sageGreenShade2);
+			transform:translateY(0.9vh);
+		}
+		
+		.blueButton:focus{
+			transition-duration: 0.12s;
+			background-color:var(--sageGreen);
+			box-shadow: 0 0.15vh var(--sageGreenShade2);
+			transform:translateY(0.9vh);
+			outline:none;
+		}
+		  
+		.button:hover {background-color: #3e8e41}
+			  
+		.button:active {
+		  background-color: #3e8e41;
+		  box-shadow: 0 5px #666;
+		  transform: translateY(4px);
+			}
+		
+		html{
+			background-color:black;
+			zoom:100%;
+		}
+}
